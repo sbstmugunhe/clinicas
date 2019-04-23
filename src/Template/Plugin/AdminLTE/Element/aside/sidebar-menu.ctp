@@ -76,7 +76,7 @@
         </a>
         <ul class="treeview-menu">
             <li>
-                <a href="<?php echo $this->Url->build('/caterias/add'); ?>"><i class="fa fa-circle-o"></i> Registar Categoria US</a>
+                <a href="<?php echo $this->Url->build('/categorias/add'); ?>"><i class="fa fa-circle-o"></i> Registar Categoria US</a>
             </li>
             <li>
                 <a href="<?php echo $this->Url->build('/categorias/index'); ?>"><i class="fa fa-circle-o"></i> Todos Categorias US</a>
