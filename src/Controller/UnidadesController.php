@@ -82,7 +82,7 @@ class UnidadesController extends AppController
         if ($this->request->is(['patch', 'post', 'put'])) {
             $unidade = $this->Unidades->patchEntity($unidade, $this->request->data);
             if ($this->Unidades->save($unidade)) {
-                $this->Flash->success(__('O {0} salvo com sucesso.', 'Unidade'));
+                $this->Flash->success(__('A {0} salvo com sucesso.', 'Unidade'));
                 return $this->redirect(['action' => 'index']);
             } else {
                 $this->Flash->error(__('O {0} não foi salvo. Tente novamente.', 'Unidade'));
