@@ -17,16 +17,6 @@
 SET NAMES utf8mb4;
 SET FOREIGN_KEY_CHECKS = 0;
 
--- ----------------------------
--- Table structure for campanhas
--- ----------------------------
-DROP TABLE IF EXISTS `campanhas`;
-CREATE TABLE `campanhas`  (
-  `id` int(11) NOT NULL,
-  `unidade_id` int(11) NOT NULL,
-  `comentarias` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
-  PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Compact;
 
 -- ----------------------------
 -- Table structure for categories
@@ -36,8 +26,8 @@ CREATE TABLE `categories`  (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
   `comentarios` text CHARACTER SET utf8 COLLATE utf8_general_ci NULL,
-  `created` datetime(0) NULL DEFAULT NULL,
-  `modified` datetime(0) NULL DEFAULT NULL,
+  `created` datetime(0),
+  `modified` datetime(0),
   PRIMARY KEY (`id`) USING BTREE
 ) ENGINE = InnoDB AUTO_INCREMENT = 2 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Compact;
 
@@ -63,11 +53,11 @@ CREATE TABLE `distritos`  (
 -- Records of distritos
 -- ----------------------------
 INSERT INTO `distritos` VALUES (1, 'Distrito Municipal KaMpfumo', 'Distrito Municipal 1 - Distrito Municipal KaMpfumo.', NULL, NULL);
-INSERT INTO `distritos` VALUES (2, 'Distrito Municipal de Nhlamankulu', 'Distrito Municipal 2 - Distrito Municipal de Nhlamankulu.', NULL, NULL);
+INSERT INTO `distritos` VALUES (2, 'Distrito Municipal KaNhlamankulu', 'Distrito Municipal 2 - Distrito Municipal de Nhlamankulu.', NULL, NULL);
 INSERT INTO `distritos` VALUES (3, 'Distrito Municipal KaMaxakeni', 'Distrito Municipal 3 - Distrito Municipal KaMaxakeni', NULL, NULL);
 INSERT INTO `distritos` VALUES (4, 'Distrito Municipal KaMavota', 'Distrito Municipal 4. - Distrito Municipal KaMavota.', NULL, NULL);
 INSERT INTO `distritos` VALUES (5, 'Distrito Municipal KaMabukwana', 'Distrito Municipal 5 - Distrito Municipal KaMabukwana.', NULL, NULL);
-INSERT INTO `distritos` VALUES (6, 'Distrito Municipal Ka Tembe', 'Distrito Municpal da Catembe - Distrito Municipal Ka Tembe.', NULL, NULL);
+INSERT INTO `distritos` VALUES (6, 'Distrito Municipal KaTembe', 'Distrito Municpal da Catembe - Distrito Municipal Ka Tembe.', NULL, NULL);
 INSERT INTO `distritos` VALUES (7, 'Distrito Municipal KaNyaka', 'Distrito Municipal de Inhaca - Distrito Municipal KaNyaka.', NULL, NULL);
 
 -- ----------------------------
@@ -150,3 +140,73 @@ INSERT INTO `users` VALUES (5, 'Cristina de Sousa', 'Cuna', 'cristina', 'cristin
 INSERT INTO `users` VALUES (6, 'Gimo ', 'Munhas', 'gimo', 'gimo@gmail.com', 1, 'gimo', NULL, '$2y$10$oNoge4yzG4iAvCOdeJrs8.y3fsbGm2NpZV1540HewRrn7PKaRjLAu', '2019-04-16 15:19:45', '2019-04-16 15:19:45');
 
 SET FOREIGN_KEY_CHECKS = 1;
+
+-- ----------------------------
+-- Table structure for diagnosticos
+-- ----------------------------
+DROP TABLE IF EXISTS `diagnosticos`;
+CREATE TABLE `diagnosticos` (
+`id` INT AUTO_INCREMENT PRIMARY KEY,
+`name` VARCHAR (255),
+`sintoma` VARCHAR (255),
+`metodo` VARCHAR (255),
+`created` DATETIME,
+`modified` DATETIME
+) ENGINE = InnoDB AUTO_INCREMENT = 7 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Compact;
+
+-- -------------------------------
+-- Table structure for pacientes
+-- -------------------------------
+DROP TABLE IF EXISTS `pacientes`;
+CREATE TABLE `pacientes` (
+`id` INT AUTO_INCREMENT PRIMARY KEY,
+`name` VARCHAR (255),
+`area_trabalho` VARCHAR (255),
+`residencia` VARCHAR (255),
+`genero` VARCHAR (25),
+`idade` INT,
+`contacto` INT,
+`created` DATETIME,
+`modified` DATETIME,
+UNIQUE KEY (`contacto`)
+) ENGINE = InnoDB AUTO_INCREMENT = 7 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Compact;
+
+-- -------------------------------
+-- Table structure for campanhas
+-- -------------------------------
+DROP TABLE IF EXISTS `campanhas`;
+CREATE TABLE `campanhas`  (
+  `id` int(11) NOT NULL,
+  `unidade_id` INT NOT NULL,
+  `user_id` INT NOT NULL,
+  `tipo_vacinacao` VARCHAR (255),
+  `dose` INT,
+  `US` INT,
+  `brigada_movel` INT,
+  `agente_CS` INT,
+  `intervalo_idade` INT,
+  `mulhere_p_parto` INT,
+  `comentarios` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
+  `created` DATETIME,
+  `modified` DATETIME,
+  PRIMARY KEY (`id`) USING BTREE
+) ENGINE = InnoDB CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Compact;
+
+-- ----------------------------------
+-- Table structure for tratamentos
+-- ----------------------------------
+DROP TABLE IF EXISTS `tratamentos`;
+CREATE TABLE `tratamentos` (
+`id` INT AUTO_INCREMENT PRIMARY KEY,
+  `contadormensal` INT DEFAULT NULL,
+  `unidade_id` INT NOT NULL,
+  `user_id` INT NOT NULL,
+  `paciente_id` INT NOT NULL,
+  `diagnostico_id` INT NOT NULL,
+  `tratam` varchar(255) DEFAULT NULL,
+  `obs` varchar(255) DEFAULT NULL,
+  `situacaovacinacao` varchar(255) DEFAULT NULL,
+  `situacaopaciente` varchar(255) DEFAULT NULL,
+  `created` datetime DEFAULT NULL,
+  `modified` datetime DEFAULT NULL
+) ENGINE = InnoDB AUTO_INCREMENT = 7 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Compact;
