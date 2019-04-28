@@ -33,6 +33,8 @@ class UsersController extends AppController
                     $loggedUser = $this->request->session()->read('Auth.User');
                     if($loggedUser['grupo_id'] == 1){
                         return $this->redirect('/');
+                    }else if($loggedUser['grupo_id'] == 2){
+                        return $this->redirect('/unidade/diagnosticos/index');
                     }
                     else{
                         return $this->redirect($this->Auth->redirectUrl('/unidade/campanhas/index'));
