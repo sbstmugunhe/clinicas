@@ -21,10 +21,10 @@
         </a>
         <ul class="treeview-menu">
             <li>
-                <a href="<?php echo $this->Url->build('/distritos/add'); ?>"><i class="fa fa-circle-o"></i> Registar Campanha </a>
+                <a href="<?php echo $this->Url->build('/campanhas/add'); ?>"><i class="fa fa-circle-o"></i> Registar Campanha </a>
             </li>
             <li>
-                <a href="<?php echo $this->Url->build('/distritos/index'); ?>"><i class="fa fa-circle-o"></i> Todas Campanhas </a>
+                <a href="<?php echo $this->Url->build('/unidade/campanhas/minhasCampanhas'); ?>"><i class="fa fa-circle-o"></i> Todas Campanhas </a>
             </li>
         </ul>
     </li>
@@ -40,10 +40,10 @@
         </a>
         <ul class="treeview-menu">
             <li>
-                <a href="<?php echo $this->Url->build('/categorias/add'); ?>"><i class="fa fa-circle-o"></i> Registar Diagnosticos </a>
+                <a href="<?php echo $this->Url->build('/diagnosticos/add'); ?>"><i class="fa fa-circle-o"></i> Registar Diagnosticos </a>
             </li>
             <li>
-                <a href="<?php echo $this->Url->build('/categorias/index'); ?>"><i class="fa fa-circle-o"></i> Todos Diagnosticos </a>
+                <a href="<?php echo $this->Url->build('/diagnosticos/index'); ?>"><i class="fa fa-circle-o"></i> Todos Diagnosticos </a>
             </li>
         </ul>
     </li>
@@ -58,10 +58,10 @@
         </a>
         <ul class="treeview-menu">
             <li>
-                <a href="<?php echo $this->Url->build('/unidades/add'); ?>"><i class="fa fa-circle-o"></i> Registar Paciente</a>
+                <a href="<?php echo $this->Url->build('/unidade/pacientes/add'); ?>"><i class="fa fa-circle-o"></i> Registar Paciente</a>
             </li>
             <li>
-                <a href="<?php echo $this->Url->build('/unidades/index'); ?>"><i class="fa fa-circle-o"></i> Todos Pacientes</a>
+                <a href="<?php echo $this->Url->build('/pacientes/index'); ?>"><i class="fa fa-circle-o"></i> Todos Pacientes</a>
             </li>
         </ul>
     </li>
@@ -77,10 +77,10 @@
         </a>
         <ul class="treeview-menu">
             <li>
-                <a href="<?php echo $this->Url->build('/unidades/add'); ?>"><i class="fa fa-circle-o"></i> Registar Tratamento</a>
+                <a href="<?php echo $this->Url->build('/tratamentos/add'); ?>"><i class="fa fa-circle-o"></i> Registar Tratamento</a>
             </li>
             <li>
-                <a href="<?php echo $this->Url->build('/unidades/index'); ?>"><i class="fa fa-circle-o"></i> Todos Tratamentos</a>
+                <a href="<?php echo $this->Url->build('/tratamentos/index'); ?>"><i class="fa fa-circle-o"></i> Todos Tratamentos</a>
             </li>
         </ul>
     </li>

@@ -234,7 +234,7 @@ Configure::write('Theme', [
         'show_social' => true
     ],
     'folder' => ROOT,
-    'skin' => 'yellow' // default is 'blue'
+    'skin' => 'green' // default is 'blue'
 ]);
 
 //Plugin::load('Acl', ['bootstrap' => true]);

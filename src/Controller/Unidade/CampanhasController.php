@@ -29,6 +29,21 @@ class CampanhasController extends AppController
     }
 
     /**
+     * Index method
+     *
+     * @return \Cake\Http\Response|void
+     */
+    public function minhascampanhas()
+    {
+        $this->paginate = [
+            'contain' => ['Unidades', 'Users']
+        ];
+        $campanhas = $this->paginate($this->Campanhas);
+
+        $this->set(compact('campanhas'));
+    }
+
+    /**
      * View method
      *
      * @param string|null $id Campanha id.
@@ -43,6 +58,7 @@ class CampanhasController extends AppController
 
         $this->set('campanha', $campanha);
     }
+
 
     /**
      * Add method
